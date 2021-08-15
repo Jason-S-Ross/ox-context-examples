@@ -1,0 +1,1212 @@
+% Created 2021-08-15 Sun 16:38
+
+
+%===============================================================================
+% From CONTEXT_HEADER
+%===============================================================================
+
+%===============================================================================
+% Document Metadata
+%===============================================================================
+\setupdocument[metadata:author={Jason Ross},
+   metadata:email={jasonross1024@gmail.com},
+   metadata:creator={Emacs 28.0.50 (Org mode 9.5)},
+   metadata:language={en},
+   Lang={En},
+   metadata:date={\currentdate}]
+\language[en]
+%===============================================================================
+% Define Environments and Commands
+%===============================================================================
+\setupxtable[OrgTableTopRow][]
+\setupxtable[OrgTableBottomRow][]
+\setupxtable[OrgTableLeftCol][]
+\setupxtable[OrgTableRightCol][]
+\setupxtable[OrgTableTopLeftCell][]
+\setupxtable[OrgTableTopRightCell][]
+\setupxtable[OrgTableBottomLeftCell][]
+\setupxtable[OrgTableBottomRightCell][]
+\setupxtable[OrgTableHeader][]
+\setupxtable[OrgTableFooter][]
+\setupxtable[OrgTableHeaderTop][]
+\setupxtable[OrgTableFooterTop][]
+\setupxtable[OrgTableHeaderBottom][]
+\setupxtable[OrgTableFooterBottom][]
+\setupxtable[OrgTableHeaderMid][]
+\setupxtable[OrgTableFooterMid][]
+\setupxtable[OrgTableBody][]
+\setupxtable[OrgTableRowGroupStart][]
+\setupxtable[OrgTableRowGroupEnd][]
+\setupxtable[OrgTableColGroupStart][]
+\setupxtable[OrgTableColGroupEnd][]
+%===============================================================================
+% Preset Commands
+%===============================================================================
+\setupwhitespace[big]
+\setuplayout[
+   backspace=103pt,
+   topspace=92pt,
+   header=12pt,
+   headerdistance=25pt,
+   width=middle,
+   height=middle]
+\setupdescription
+  [OrgDesc]
+  [headstyle=bold,
+   style=normal,
+   align=flushleft,
+   alternative=hanging,
+   width=broad,
+   margin=1cm]
+\defineblank[QuoteSkip][1ex]
+\setupstartstop
+  [OrgBlockQuote]
+  [style=slanted,
+   before={\blank[QuoteSkip]
+      \setupnarrower[left=1em, right=1em]
+      \startnarrower[left, right]
+      \noindent},
+   after={\stopnarrower
+      \blank[QuoteSkip]
+      \indenting[next]}]
+\defineblank[VerseSkip][1ex]
+\setuplines
+  [OrgVerse]
+  [before={\blank[VerseSkip]
+    \setupnarrower[left=1em, right=1em]
+    \startnarrower[left, right]},
+   after={\stopnarrower \blank[VerseSkip]},space=on]
+\setupxtable
+  [split=yes,
+   header=repeat,
+   footer=repeat,
+   leftframe=off,
+   rightframe=off,
+   topframe=off,
+   bottomframe=off,
+   loffset=1em,
+   roffset=1em,
+   stretch=on]
+\setupxtable
+  [OrgTableHeader]
+  [toffset=1ex,
+   foregroundstyle=bold,
+   topframe=on,
+   bottomframe=on]
+\setupxtable[OrgTableFooter][OrgTableHeader][]
+\setupxtable
+  [OrgTableHeaderTop]
+  [OrgTableHeader]
+  [bottomframe=off]
+\setupxtable
+  [OrgTableFooterTop]
+  [OrgTableFooter]
+  [bottomframe=off]
+\setupxtable
+  [OrgTableHeaderBottom]
+  [OrgTableHeader]
+  [topframe=off]
+\setupxtable
+  [OrgTableFooterBottom]
+  [OrgTableFooter]
+  [topframe=off]
+\setupxtable
+  [OrgTableHeaderMid]
+  [OrgTableHeader]
+  [topframe=off,bottomframe=off]
+\setupxtable
+  [OrgTableFooterMid]
+  [OrgTableFooter]
+  [topframe=off,bottomframe=off]
+\setupxtable
+  [OrgTableTopRow]
+  [topframe=on]
+\setupxtable
+  [OrgTableRowGroupStart]
+  [topframe=on]
+\setupxtable
+  [OrgTableRowGroupEnd]
+  [bottomframe=on]
+\setupxtable
+  [OrgTableColGroupStart]
+  [leftframe=on]
+\setupxtable
+  [OrgTableColGroupEnd]
+  [rightframe=on]
+\setupxtable
+  [OrgTableBottomRow]
+  [bottomframe=on]
+
+\setuphead[title][align=middle]
+\definestartstop[OrgTitlePage]
+\define\OrgMakeTitle{%
+  \startalignment[center]
+   \blank[force,2*big]
+   \title{\documentvariable{metadata:title}}
+   \doifnot{\documentvariable{metadata:subtitle}}{}{
+     \blank[force,1*big]
+     \tfa \documentvariable{metadata:subtitle}}
+   \doifelse{\documentvariable{metadata:author}}{}{
+   \blank[3*medium]
+   {\tfa \documentvariable{metadata:email}}
+   }{
+      \blank[3*medium]
+      {\tfa \documentvariable{metadata:author}}
+   }
+   \blank[2*medium]
+   {\tfa \documentvariable{metadata:date}}
+   \blank[3*medium]
+  \stopalignment}
+\setupsectionblock[frontpart][page=no]
+\setupsectionblock[bodypart][page=no]
+\setuppagenumbering[location={footer,middle}]
+\setuplayout[grid=both]
+\setupformulae[grid=both]
+%===============================================================================
+% Commands from CONTEXT_HEADER_EXTRA
+%===============================================================================
+
+%===============================================================================
+% Document Body
+%===============================================================================
+% Turn on interaction to make links work
+\setupinteraction[state=start]
+\starttext
+\placebookmarks
+\startfrontmatter
+\startOrgTitlePage
+\OrgMakeTitle
+
+\stopOrgTitlePage
+
+\stopfrontmatter
+
+\startbodymatter
+
+
+Tables are supported by the {\tt xtables} environment.
+
+\startplacetable
+[location={split,force,here},
+   title={Default Layout Table},
+   reference={tab:org341268a}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablehead[OrgTableHeader]
+\startxrow
+\startxcell[OrgTableTopLeftCell] \startalignment[flushright] A \stopalignment \stopxcell
+\startxcell[OrgTableTopRightCell] \startalignment[flushright] B \stopalignment \stopxcell
+\stopxrow
+\stopxtablehead
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 1 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 2 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableBottomLeftCell] \startalignment[flushright] 3 \stopalignment \stopxcell
+\startxcell[OrgTableBottomRightCell] \startalignment[flushright] 4 \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+Tables support the {\tt :option} keyword in {\tt \letterhash{}+ATTR_CONTEXT}. This keyword is passed
+to the {\tt option} parameter of the {\tt \backslash{}startxtable} command. Here's the same table
+with {\tt :option stretch}:
+
+\startplacetable
+[location={split,force,here},
+   title={Stretch Layout Table},
+   reference={tab:orgb19a45a}]
+\startxtable
+[split={yes},
+   header={repeat},
+   option={stretch}]
+\startxtablehead[OrgTableHeader]
+\startxrow
+\startxcell[OrgTableTopLeftCell] \startalignment[flushright] A \stopalignment \stopxcell
+\startxcell[OrgTableTopRightCell] \startalignment[flushright] B \stopalignment \stopxcell
+\stopxrow
+\stopxtablehead
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 1 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 2 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableBottomLeftCell] \startalignment[flushright] 3 \stopalignment \stopxcell
+\startxcell[OrgTableBottomRightCell] \startalignment[flushright] 4 \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+Tables without headers have a top and bottom line by default.
+
+\startplacetable
+[location={split,force,here},
+   title={Simple Table},
+   reference={tab:org8b4ee60}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableTopRow]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] Cell A \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 1 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 2 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] Cell B \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 2 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 3 \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+Here's a very long table. We can split it by setting
+{\tt :split t} and {\tt :header repeat} in {\tt \letterhash{}+ATTR_CONTEXT}.
+
+\startplacetable
+[location={split,force,here},
+   title={Giant Table},
+   reference={tab:orgd5764a4}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablehead[OrgTableHeader]
+\startxrow
+\startxcell[OrgTableTopLeftCell] \startalignment[flushright] A \stopalignment \stopxcell
+\startxcell \startalignment[flushright] B \stopalignment \stopxcell
+\startxcell \startalignment[flushright] C \stopalignment \stopxcell
+\startxcell \startalignment[flushright] D \stopalignment \stopxcell
+\startxcell \startalignment[flushright] E \stopalignment \stopxcell
+\startxcell \startalignment[flushright] F \stopalignment \stopxcell
+\startxcell \startalignment[flushright] G \stopalignment \stopxcell
+\startxcell \startalignment[flushright] H \stopalignment \stopxcell
+\startxcell \startalignment[flushright] I \stopalignment \stopxcell
+\startxcell[OrgTableTopRightCell] \startalignment[flushright] J \stopalignment \stopxcell
+\stopxrow
+\stopxtablehead
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 1 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 2 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 3 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 4 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 5 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 6 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 7 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 8 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 9 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 2 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 4 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 6 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 8 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 10 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 12 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 14 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 16 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 18 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 3 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 6 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 9 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 12 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 15 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 18 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 21 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 24 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 27 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 4 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 8 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 12 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 16 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 20 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 24 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 28 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 32 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 36 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 5 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 10 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 15 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 20 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 25 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 30 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 35 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 40 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 45 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 6 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 12 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 18 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 24 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 30 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 36 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 42 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 48 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 54 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 7 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 14 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 21 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 28 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 35 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 42 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 49 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 56 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 63 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 8 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 16 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 24 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 32 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 40 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 48 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 56 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 64 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 72 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 9 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 18 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 27 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 36 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 45 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 54 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 63 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 72 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 81 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 10 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 20 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 30 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 40 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 50 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 60 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 70 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 80 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 90 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 11 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 22 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 33 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 44 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 55 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 66 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 77 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 88 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 99 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 12 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 24 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 36 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 48 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 60 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 72 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 84 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 96 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 108 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 13 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 26 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 39 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 52 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 65 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 78 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 91 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 104 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 117 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 14 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 28 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 42 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 56 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 70 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 84 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 98 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 112 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 126 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 15 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 30 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 45 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 60 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 75 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 90 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 105 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 120 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 135 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 16 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 32 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 48 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 64 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 80 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 96 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 112 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 128 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 144 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 17 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 34 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 51 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 68 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 85 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 102 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 119 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 136 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 153 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 18 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 36 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 54 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 72 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 90 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 108 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 126 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 144 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 162 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 19 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 38 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 57 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 76 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 95 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 114 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 133 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 152 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 171 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 20 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 40 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 60 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 80 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 100 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 120 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 140 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 160 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 180 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 21 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 42 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 63 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 84 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 105 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 126 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 147 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 168 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 189 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 22 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 44 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 66 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 88 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 110 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 132 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 154 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 176 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 198 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 23 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 46 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 69 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 92 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 115 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 138 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 161 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 184 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 207 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 24 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 48 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 72 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 96 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 120 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 144 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 168 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 192 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 216 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 25 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 50 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 75 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 100 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 125 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 150 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 175 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 200 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 225 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 26 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 52 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 78 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 104 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 130 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 156 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 182 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 208 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 234 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 27 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 54 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 81 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 108 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 135 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 162 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 189 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 216 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 243 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 28 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 56 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 84 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 112 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 140 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 168 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 196 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 224 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 252 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 29 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 58 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 87 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 116 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 145 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 174 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 203 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 232 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 261 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 30 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 60 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 90 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 120 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 150 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 180 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 210 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 240 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 270 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 31 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 62 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 93 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 124 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 155 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 186 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 217 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 248 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 279 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 32 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 64 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 96 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 128 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 160 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 192 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 224 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 256 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 288 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 33 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 66 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 99 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 132 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 165 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 198 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 231 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 264 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 297 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 34 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 68 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 102 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 136 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 170 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 204 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 238 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 272 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 306 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 35 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 70 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 105 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 140 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 175 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 210 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 245 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 280 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 315 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 36 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 72 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 108 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 144 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 180 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 216 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 252 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 288 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 324 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 37 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 74 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 111 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 148 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 185 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 222 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 259 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 296 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 333 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 38 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 76 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 114 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 152 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 190 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 228 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 266 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 304 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 342 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 39 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 78 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 117 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 156 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 195 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 234 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 273 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 312 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 351 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 40 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 80 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 120 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 160 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 200 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 240 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 280 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 320 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 360 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 41 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 82 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 123 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 164 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 205 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 246 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 287 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 328 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 369 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 42 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 84 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 126 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 168 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 210 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 252 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 294 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 336 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 378 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 43 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 86 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 129 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 172 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 215 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 258 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 301 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 344 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 387 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 44 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 88 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 132 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 176 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 220 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 264 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 308 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 352 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 396 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 45 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 90 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 135 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 180 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 225 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 270 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 315 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 360 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 405 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 46 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 92 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 138 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 184 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 230 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 276 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 322 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 368 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 414 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 47 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 94 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 141 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 188 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 235 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 282 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 329 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 376 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 423 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 48 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 96 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 144 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 192 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 240 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 288 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 336 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 384 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 432 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableRowGroupEnd]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 49 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 98 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 147 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 196 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 245 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 294 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 343 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 392 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 441 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableBottomLeftCell] \startalignment[flushright] A \stopalignment \stopxcell
+\startxcell \startalignment[flushright] B \stopalignment \stopxcell
+\startxcell \startalignment[flushright] C \stopalignment \stopxcell
+\startxcell \startalignment[flushright] D \stopalignment \stopxcell
+\startxcell \startalignment[flushright] E \stopalignment \stopxcell
+\startxcell \startalignment[flushright] F \stopalignment \stopxcell
+\startxcell \startalignment[flushright] G \stopalignment \stopxcell
+\startxcell \startalignment[flushright] H \stopalignment \stopxcell
+\startxcell \startalignment[flushright] I \stopalignment \stopxcell
+\startxcell[OrgTableBottomRightCell] \startalignment[flushright] J \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+Here's a table with paragraphs in it. \ConTeXt{} handles this case with default
+options.
+
+\startplacetable
+[location={split,force,here},
+   title={Wrapped Table},
+   reference={tab:orge1b802a}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablehead[OrgTableHeader]
+\startxrow
+\startxcell[OrgTableTopLeftCell] \startalignment[flushleft] Description \stopalignment \stopxcell
+\startxcell[OrgTableTopRightCell] \startalignment[flushleft] Contents \stopalignment \stopxcell
+\stopxrow
+\stopxtablehead
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] First Thing \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushleft] Aliquam erat volutpat.  Nunc eleifend leo vitae magna.  In id erat non orci commodo lobortis.  Proin neque massa, cursus ut, gravida ut, lobortis eget, lacus.  Sed diam.  Praesent fermentum tempor tellus.  Nullam tempus.  Mauris ac felis vel velit tristique imperdiet.  Donec at pede.  Etiam vel neque nec dui dignissim bibendum.  Vivamus id enim.  Phasellus neque orci, porta a, aliquet quis, semper a, massa.  Phasellus purus.  Pellentesque tristique imperdiet tortor.  Nam euismod tellus id erat. \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableBottomLeftCell] \startalignment[flushleft] Second Thing \stopalignment \stopxcell
+\startxcell[OrgTableBottomRightCell] \startalignment[flushleft] Pellentesque dapibus suscipit ligula.  Donec posuere augue in quam.  Etiam vel tortor sodales tellus ultricies commodo.  Suspendisse potenti.  Aenean in sem ac leo mollis blandit.  Donec neque quam, dignissim in, mollis nec, sagittis eu, wisi.  Phasellus lacus.  Etiam laoreet quam sed arcu.  Phasellus at dui in ligula mollis ultricies.  Integer placerat tristique nisl.  Praesent augue.  Fusce commodo.  Vestibulum convallis, lorem a tempus semper, dui dui euismod elit, vitae placerat urna tortor vitae lacus.  Nullam libero mauris, consequat quis, varius et, dictum id, arcu.  Mauris mollis tincidunt felis.  Aliquam feugiat tellus ut neque.  Nulla facilisis, risus a rhoncus fermentum, tellus tellus lacinia purus, et dictum nunc justo sit amet elit. \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+
+
+\setupxtable[Top][background=color,backgroundcolor=red]
+
+\setupxtable[Bottom][background=color,backgroundcolor=blue]
+
+\setupxtable[Left][background=color,backgroundcolor=green]
+
+\setupxtable[Right][background=color,backgroundcolor=yellow]
+
+\setupxtable[Body][foregroundstyle=italic]
+\startplacetable
+[location={split,force,here},
+   title={Fancy Table},
+   reference={tab:orga68c780}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablehead[background=color,backgroundcolor=red]
+\startxrow
+\startxcell[foregroundstyle=sansbold] \startalignment[flushright] A \stopalignment \stopxcell
+\startxcell \startalignment[flushright] B \stopalignment \stopxcell
+\startxcell \startalignment[flushright] C \stopalignment \stopxcell
+\startxcell[foregroundstyle=smallitalicbold] \startalignment[flushright] D \stopalignment \stopxcell
+\stopxrow
+\stopxtablehead
+\startxtablebody[Body]
+\startxrow[OrgTableRowGroupStart]
+\startxcell[background=color,backgroundcolor=green] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell[background=color,backgroundcolor=yellow] \startalignment[flushright] 0 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[background=color,backgroundcolor=green] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 1 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 2 \stopalignment \stopxcell
+\startxcell[background=color,backgroundcolor=yellow] \startalignment[flushright] 3 \stopalignment \stopxcell
+\stopxrow
+\startxrow[background=color,backgroundcolor=blue]
+\startxcell[foregroundstyle=bold] \startalignment[flushright] 0 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 2 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 4 \stopalignment \stopxcell
+\startxcell[foregroundstyle=smallbold] \startalignment[flushright] 6 \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+
+
+\startplacetable
+[location={split,force,here},
+   title={Table with column and row groups},
+   reference={tab:orgdcc0501}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablehead[OrgTableHeader]
+\startxrow[OrgTableHeaderTop]
+\startxcell[OrgTableTopLeftCell] \startalignment[flushleft] N \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] N\high{2} \stopalignment \stopxcell
+\startxcell \startalignment[flushleft] N\high{3} \stopalignment \stopxcell
+\startxcell[OrgTableColGroupEnd] \startalignment[flushleft] N\high{4} \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] sqrt(n) \stopalignment \stopxcell
+\startxcell[OrgTableTopRightCell] \startalignment[flushleft] sqrt\[4\](N) \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableHeaderBottom]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] foo \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] bar \stopalignment \stopxcell
+\startxcell \startalignment[flushleft] baz biz \stopalignment \stopxcell
+\startxcell[OrgTableColGroupEnd]  \stopxcell
+\startxcell[OrgTableColGroupStart]  \stopxcell
+\startxcell[OrgTableRightCol]  \stopxcell
+\stopxrow
+\stopxtablehead
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] 1 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] 1 \stopalignment \stopxcell
+\startxcell \startalignment[flushleft] 1 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupEnd] \startalignment[flushleft] 1 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] 1 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushleft] 1 \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] 2 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] 4 \stopalignment \stopxcell
+\startxcell \startalignment[flushleft] 8 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupEnd] \startalignment[flushleft] 16 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] 1.4142 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushleft] 1.1892 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableRowGroupEnd]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] 3 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] 9 \stopalignment \stopxcell
+\startxcell \startalignment[flushleft] 27 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupEnd] \startalignment[flushleft] 81 \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] 1.7321 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushleft] 1.3161 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] ab \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] de \stopalignment \stopxcell
+\startxcell \startalignment[flushleft] ag \stopalignment \stopxcell
+\startxcell[OrgTableColGroupEnd] \startalignment[flushleft] ce \stopalignment \stopxcell
+\startxcell[OrgTableColGroupStart] \startalignment[flushleft] fe \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushleft] dd \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableBottomLeftCell]  \stopxcell
+\startxcell[OrgTableColGroupStart]  \stopxcell
+\startxcell  \stopxcell
+\startxcell[OrgTableColGroupEnd]  \stopxcell
+\startxcell[OrgTableColGroupStart]  \stopxcell
+\startxcell[OrgTableBottomRightCell]  \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+\startplacetable
+[location={split,force,here},
+   title={Table with row groups and footer},
+   reference={tab:org0e49718}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablehead[OrgTableHeader]
+\startxrow
+\startxcell[OrgTableTopLeftCell] \startalignment[flushright] H1 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] H2 \stopalignment \stopxcell
+\startxcell[OrgTableTopRightCell] \startalignment[flushright] H3 \stopalignment \stopxcell
+\stopxrow
+\stopxtablehead
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 1 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 2 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 3 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableRowGroupEnd]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 4 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 5 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 6 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 7 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 8 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 9 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableRowGroupEnd]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 4 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 5 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 6 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 7 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 8 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 9 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableRowGroupEnd]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 4 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 5 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 6 \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\startxtablefoot[OrgTableFooter]
+\startxrow
+\startxcell[OrgTableBottomLeftCell] \startalignment[flushright] 7 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 8 \stopalignment \stopxcell
+\startxcell[OrgTableBottomRightCell] \startalignment[flushright] 9 \stopalignment \stopxcell
+\stopxrow
+\stopxtablefoot
+\stopxtable
+\stopplacetable
+
+\startplacetable
+[location={split,force,here},
+   title={Table with a width spec},
+   reference={tab:orgdba2c2e}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableTopRow]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] Praesent fermentum tempor tellus.  Etiam laoreet quam sed arcu.  Praesent augue. \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushleft] Cell 2 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] Etiam vel neque nec dui dignissim bibendum.  Aenean in sem ac leo mollis blandit. \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushleft] Cell 3 \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\startxrow[empty=yes,offset=-1pt,height=0pt]
+\startxcell[width=12.00em]\stopxcell
+\startxcell\stopxcell
+\stopxrow\stopxtable
+\stopplacetable
+
+\startplacetable
+[location={split,force,here},
+   title={Table with an alignment spec},
+   reference={tab:org9e44473}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableTopRow]
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] Donec hendrerit tempor tellus. \stopalignment \stopxcell
+\startxcell \startalignment[middle] Lorem ipsum dolor sit amet, consectetuer adipiscing elit. \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] Nullam tempus. \stopalignment \stopxcell
+\stopxrow
+\startxrow
+\startxcell[OrgTableLeftCol] \startalignment[flushleft] 1 \stopalignment \stopxcell
+\startxcell \startalignment[middle] 2 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 3 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableBottomLeftCell] \startalignment[flushleft] 4 \stopalignment \stopxcell
+\startxcell \startalignment[middle] 5 \stopalignment \stopxcell
+\startxcell[OrgTableBottomRightCell] \startalignment[flushright] 6 \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+\startplacetable
+[location={split,force,here},
+   title={Table with two header rows},
+   reference={tab:org1de23ee}]
+\startxtable
+[split={yes},
+   header={repeat}]
+\startxtablehead[OrgTableHeader]
+\startxrow[OrgTableHeaderTop]
+\startxcell[OrgTableTopLeftCell] \startalignment[flushright] H1 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] H2 \stopalignment \stopxcell
+\startxcell[OrgTableTopRightCell] \startalignment[flushright] H3 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableHeaderBottom]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] H1 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] H2 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] H3 \stopalignment \stopxcell
+\stopxrow
+\stopxtablehead
+\startxtablebody[OrgTableBody]
+\startxrow[OrgTableRowGroupStart]
+\startxcell[OrgTableLeftCol] \startalignment[flushright] 1 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 2 \stopalignment \stopxcell
+\startxcell[OrgTableRightCol] \startalignment[flushright] 3 \stopalignment \stopxcell
+\stopxrow
+\startxrow[OrgTableBottomRow]
+\startxcell[OrgTableBottomLeftCell] \startalignment[flushright] 4 \stopalignment \stopxcell
+\startxcell \startalignment[flushright] 5 \stopalignment \stopxcell
+\startxcell[OrgTableBottomRightCell] \startalignment[flushright] 6 \stopalignment \stopxcell
+\stopxrow
+\stopxtablebody
+\stopxtable
+\stopplacetable
+
+\stopbodymatter
+
+\startappendices
+
+
+\stopappendices
+
+\startbackmatter
+
+
+\stopbackmatter
+\stoptext
