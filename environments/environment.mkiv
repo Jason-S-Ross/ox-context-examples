@@ -1,0 +1,88 @@
+% Created 2021-08-15 Sun 16:53
+
+
+%===============================================================================
+% From CONTEXT_HEADER
+%===============================================================================
+
+%===============================================================================
+% Table of Contents Configuration
+%===============================================================================
+\define\OrgTitleContents{{\tfc Contents}}
+\setupcombinedlist[content][list={section,subsection}]
+
+%===============================================================================
+% Document Metadata
+%===============================================================================
+\setupdocument[metadata:author={Jason Ross},
+   metadata:title={Environment},
+   metadata:email={jasonross1024@gmail.com},
+   metadata:creator={Emacs 28.0.50 (Org mode 9.5)},
+   metadata:language={en},
+   Lang={En},
+   metadata:date={\currentdate}]
+\language[en]
+%===============================================================================
+% Define Environments and Commands
+%===============================================================================
+% Define a basic headline command
+\def\OrgHeadline#1[#2]{%
+  \getparameters
+    [OrgHeadline]
+    [Todo=,
+     TodoType=,
+     Priority=,
+     Text=,
+     Tags=,
+     #2]
+  \doifnot{\OrgHeadlineTodo}{}{{\sansbold{\smallcaps{\OrgHeadlineTodo}}\space}}%
+  \doifnot{\OrgHeadlinePriority}{}{{\inframed{\OrgHeadlinePriority}\space}}%
+  \OrgHeadlineText%
+  \doifnot{\OrgHeadlineTags}{}{{\hfill\tt\OrgHeadlineTags}}%
+}
+%===============================================================================
+% Commands from CONTEXT_HEADER_EXTRA
+%===============================================================================
+\environment my-env
+
+%===============================================================================
+% Document Body
+%===============================================================================
+% Turn on interaction to make links work
+\setupinteraction[state=start]
+\starttext
+\placebookmarks
+\OrgTitleContents
+\placecontent
+
+
+
+
+\startsection[title={\OrgHeadline
+   [Text={Top Level Header}]},
+   list={Top Level Header},
+   marking={Top Level Header},
+   bookmark={Top Level Header},
+   reference={sec:orgf90e1b9}]
+
+Some Text
+
+
+\startsubsection[title={\OrgHeadline
+   [Text={Second Level}]},
+   list={Second Level},
+   marking={Second Level},
+   bookmark={Second Level},
+   reference={sec:orgfa9b909}]
+
+Some More Text
+
+\stopsubsection
+
+\stopsection
+
+
+
+
+
+\stoptext

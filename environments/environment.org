@@ -1,0 +1,14 @@
+#+TITLE: Environment
+#+CONTEXT_PRESET: empty
+#+CONTEXT_HEADER_EXTRA: \environment my-env
+
+Demo showing the use of an environment file to customize document
+appearance.
+
+* Top Level Header
+
+Some Text
+
+** Second Level
+
+Some More Text
